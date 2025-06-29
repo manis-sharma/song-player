@@ -1,0 +1,221 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #9a1d86, #1595be);
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.player {
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wrapper {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  width: 400px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.wrapper::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 70%);
+  animation: rotate 10s linear infinite;
+  z-index: -1;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.track-art {
+  margin: 25px;
+  height: 250px;
+  width: 250px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.now-playing {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.track-name {
+  font-size: 2.8rem;
+  margin: 10px 0;
+  color: #fff;
+}
+
+.track-artist {
+  font-size: 1.6rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.buttons i {
+  font-size: 2rem;
+  margin: 0 15px;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.buttons i:hover {
+  color: #fff;
+  transform: scale(1.2);
+}
+
+.slider_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.seek_slider, .volume_slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  outline: none;
+  transition: opacity 0.2s;
+}
+
+.seek_slider::-webkit-slider-thumb, .volume_slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border: 3px solid #3774FF;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.seek_slider:hover, .volume_slider:hover {
+  opacity: 1;
+}
+
+.seek_slider {
+  width: 70%;
+}
+
+.volume_slider {
+  width: 40%;
+}
+
+.volume-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.volume-controls button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.volume-controls button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.current-time, .total-duration {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+}
+
+.randomActive {
+  color: #fff;
+}
+
+.rotate {
+  animation: rotation 8s infinite linear;
+}
+
+@keyframes rotation {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(359deg); }
+}
+
+.loader {
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader .stroke {
+  background: #f1f1f1;
+  height: 150%;
+  width: 12px;
+  border-radius: 50px;
+  margin: 0 6px;
+  animation: animate 1.4s linear infinite;
+}
+
+@keyframes animate {
+  50% { height: 20%; background: #4286f4; }
+  100% { background: #4286f4; height: 100%; }
+}
+
+.stroke:nth-child(1) { animation-delay: 0s; }
+.stroke:nth-child(2) { animation-delay: 0.3s; }
+.stroke:nth-child(3) { animation-delay: 0.6s; }
+.stroke:nth-child(4) { animation-delay: 0.9s; }
+.stroke:nth-child(5) { animation-delay: 0.6s; }
+.stroke:nth-child(6) { animation-delay: 0.3s; }
+.stroke:nth-child(7) { animation-delay: 0s; }
